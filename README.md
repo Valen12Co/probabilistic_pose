@@ -1,6 +1,6 @@
 # probabilistic_pose
 
-This is a secondary repo for the semester project `Effect of probabilistic pose estimator on downstream tasks` conducted during Fall 2024. Please look at `https://github.com/vita-epfl/downstream_performance_comparison/` for the framework implementation. In this repo, we build on the work of TIC-TAC [1] for the Human pose. The code is based on the code from the following Git `https://github.com/vita-epfl/TIC-TAC/tree/main/HumanPose`.
+This is a secondary repo for the semester project `Effect of probabilistic pose estimator on downstream tasks` conducted during Fall 2024. Please look at `https://github.com/Valen12Co/downstream_performance_comparison` for the framework implementation. In this repo, we build on the work of TIC-TAC [1] for the Human pose. The code is based on the code from the following Git `https://github.com/vita-epfl/TIC-TAC/tree/main/HumanPose`.
 The aim was to extend the code to work for the MS_COCO dataset. Furthermore, we added a model that predicts if the joint is present in the image (visible or occluded counts as present). This enables us to change the covariance matrix accordingly and enable the full model to handle images where not necessarily all keypoints are present. We still added a small constraint to consider an image: it must have a sufficient bounding box size and at least one visible keypoint.
 
 ## Code structure
