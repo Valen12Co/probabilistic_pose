@@ -1,0 +1,35 @@
+experiment_name: "GPuTest" # A folder with this name will be created in save_path
+
+trials: 1
+model: "ViTPose" # One of ['Hourglass', 'ViTPose']
+
+use_hessian: False # Default: False, can also be True
+
+save_path: '/mnt/vita/scratch/vita-students/users/perret/probabilistic_pose/results'
+
+dataset: {
+  load: 'mpii', #'mpii': mpii+lsp+lspset, 'coco': MS_COCO, 'merged': merge 'mpii'+'coco'
+  mpii_params: {precached: true},
+  # precached: True implies preprocessed version of MPII exists
+  # Should be False the first time this code is run, and true subsequently
+  coco_params: {precached: True, all_joints: False}
+}
+preloading: True #If True choose to select directely the npy files that where processed through create_coco, train/validation separation
+
+experiment_settings: {
+  epochs: 1,       # Default: 150
+  lr: 0.001,         # Default: {1e-2: Hoursglass, 1e-3: ViTPose}
+  batch_size: 32,    # Default: 32
+}
+
+# ViTPose configuration is in models/vit_pose/vitpose_config.py
+architecture: {
+  hourglass: {nstack: 2, channels: 64}, #64
+  aux_net: {fc: [64, 64, 64]}, #64 64 64
+  joint_prediction: {fc: [64, 64]} #64 64 64
+}
+
+# If RAM permits, load all images into memory
+load_images: True
+
+
